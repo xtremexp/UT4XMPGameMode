@@ -166,7 +166,7 @@ bool UXGameMessage::InterruptAnnouncement_Implementation(int32 Switch, const UOb
 	return false;
 }
 
-FName UXGameMessage::GetAnnouncementName_Implementation(int32 Switch, const UObject* OptionalObject) const
+FName UXGameMessage::GetAnnouncementName_Implementation(int32 Switch, const UObject* OptionalObject, const class APlayerState* RelatedPlayerState_1, const class APlayerState* RelatedPlayerState_2) const
 {
 	return MessageAnnouncements[Switch];
 }

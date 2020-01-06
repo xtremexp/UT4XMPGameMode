@@ -46,7 +46,8 @@ AXArtifactNode::AXArtifactNode(const FObjectInitializer& ObjectInitializer)
 	Mesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, TEXT("Cube"));
 	GetMesh()->AttachTo(RootComponent);
 
-	GetMesh()->OnComponentBeginOverlap.AddDynamic(this, &AXArtifactNode::OnOverlapBegin);
+	// XTXP check compile fix find replacement
+	//GetMesh()->OnComponentBeginOverlap.AddDynamic(this, &AXArtifactNode::OnOverlapBegin);
 	GetMesh()->bGenerateOverlapEvents = true;
 
 	ArtifactOffset = FVector(0.f, 0.f, 300.f);
@@ -76,7 +77,8 @@ void AXArtifactNode::BeginPlay()
 	}
 
 	UStaticMeshComponent* TouchProxy = Cast<UStaticMeshComponent>(GetMesh()->GetChildComponent(0));
-	TouchProxy->OnComponentBeginOverlap.AddDynamic(this, &AXArtifactNode::OnOverlapBegin);
+	// XTXP FIXme compile
+	//TouchProxy->OnComponentBeginOverlap.AddDynamic(this, &AXArtifactNode::OnOverlapBegin);
 	TouchProxy->bGenerateOverlapEvents = true;
 }
 
