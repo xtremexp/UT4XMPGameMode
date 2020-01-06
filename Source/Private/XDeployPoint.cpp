@@ -100,7 +100,8 @@ bool AXDeployPoint::SetupDeployLocation()
 	if (StartSpot) return true;
 	FActorSpawnParameters Params;
 	Params.Owner = this;
-	Params.bNoCollisionFail = true;
+	//Params.bNoCollisionFail = true;
+	Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	StartSpot = GetWorld()->SpawnActor<APlayerStart>(APlayerStart::StaticClass(), GetActorLocation() + FVector(500.f, 500.f, 500.f), GetActorRotation(), Params);
 	return true;
 }

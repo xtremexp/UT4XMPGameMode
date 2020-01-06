@@ -36,8 +36,9 @@ UXEndoCharacterMovement::UXEndoCharacterMovement(const FObjectInitializer& Objec
 	Stamina = StaminaMax;
 	SprintCost = 17.5f;
 	SprintRatio = 1.4f;
-	SprintAccel = 6000.f;
-	SprintSpeed = 950.f;
+	// XTXP remove spring functionality on 24/02/2017 17:48:20
+	//SprintAccel = 6000.f;
+	//SprintSpeed = 950.f;
 	MaxMultiJumpCount = 1;
 	MultiJumpsRemaining = 1;
 	JumpJetZ = 2500.f;

@@ -46,7 +46,8 @@ public:
 	virtual float GetMaxAcceleration() const override;
 
 	/** Return true if character can sprint right now */
-	virtual bool CanSprint() const override;
+	// XTXP functionality gone in some previous UT version ...
+	//virtual bool CanSprint() const override;
 
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 

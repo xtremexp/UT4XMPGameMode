@@ -40,8 +40,9 @@ UXCharacterMovement::UXCharacterMovement(const FObjectInitializer& ObjectInitial
 	Stamina = StaminaMax;
 	SprintCost = 35.f;
 	SprintRatio = 1.65f;
-	SprintAccel = 6000.f;
-	SprintSpeed = 950.f;
+	// XTXP remove sprint functionality on 24/02/2017 17:48:20
+	//SprintAccel = 6000.f;
+	//SprintSpeed = 950.f;
 	MaxMultiJumpCount = 1;
 	MultiJumpsRemaining = 1;
 	JumpJetZ = 715.f;
@@ -58,7 +59,7 @@ UXCharacterMovement::UXCharacterMovement(const FObjectInitializer& ObjectInitial
 float UXCharacterMovement::GetMaxSpeed() const
 {
 	float test = 13.f;
-	if (bIsHoldingSprint && CanSprint())
+	if (bIsHoldingSprint /*&& CanSprint()*/)
 	{
 		test = MaxWalkSpeed * SprintRatio;
 	}
@@ -72,11 +73,14 @@ float UXCharacterMovement::GetMaxSpeed() const
 
 float UXCharacterMovement::GetMaxAcceleration() const
 {
-    if (bIsSprinting)
-        return SprintAccel;
+    // XTXP removed spring functionality on 24/02/2017 17:48:20
+	//if (bIsSprinting)
+        //return SprintAccel;
     return Super::GetMaxAcceleration();
 }
 
+// XTXP no spring functionality
+/*
 bool UXCharacterMovement::CanSprint() const
 {
 	if (CharacterOwner && !IsCrouching() && Stamina > 0)
@@ -84,7 +88,7 @@ bool UXCharacterMovement::CanSprint() const
 		return true;
 	}
 	return false;
-}
+}*/
 
 void UXCharacterMovement::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {

@@ -33,16 +33,17 @@ AXCharacterContent::AXCharacterContent(const FObjectInitializer& OI)
 {
 	RootComponent = OI.CreateDefaultSubobject<USceneComponent>(this, FName(TEXT("DummyRoot"))); // needed so Mesh has RelativeLocation/RelativeRotation in the editor
 	Mesh = OI.CreateDefaultSubobject<USkeletalMeshComponent>(this, FName(TEXT("Mesh")));
-	Mesh->AttachParent = RootComponent;
+	Mesh->AttachTo(RootComponent);
 	Mesh->AlwaysLoadOnClient = true;
 	Mesh->AlwaysLoadOnServer = true;
 	Mesh->bCastDynamicShadow = true;
 	Mesh->bAffectDynamicIndirectLighting = true;
 	Mesh->PrimaryComponentTick.TickGroup = TG_PrePhysics;
-	Mesh->bChartDistanceFactor = true;
+	// XTXP prop seems gone TODO check replacement
+	//Mesh->bChartDistanceFactor = true;
 	Mesh->SetCollisionProfileName(FName(TEXT("CharacterMesh")));
 	Mesh->bGenerateOverlapEvents = false;
-	Mesh->bCanEverAffectNavigation = false;
+	Mesh->SetCanEverAffectNavigation(false);
 	Mesh->MeshComponentUpdateFlag = EMeshComponentUpdateFlag::OnlyTickPoseWhenRendered;
 	Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	Mesh->bEnablePhysicsOnDedicatedServer = true; // needed for feign death; death ragdoll shouldn't be invoked on server

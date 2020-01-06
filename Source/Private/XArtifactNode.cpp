@@ -44,7 +44,7 @@ AXArtifactNode::AXArtifactNode(const FObjectInitializer& ObjectInitializer)
 
 	RootComponent = ObjectInitializer.CreateDefaultSubobject<USceneComponent, USceneComponent>(this, TEXT("DummyRoot"), false);
 	Mesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, TEXT("Cube"));
-	GetMesh()->AttachParent = RootComponent;
+	GetMesh()->AttachTo(RootComponent);
 
 	GetMesh()->OnComponentBeginOverlap.AddDynamic(this, &AXArtifactNode::OnOverlapBegin);
 	GetMesh()->bGenerateOverlapEvents = true;

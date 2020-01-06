@@ -34,5 +34,6 @@ UXGameAnnouncer::UXGameAnnouncer(const FObjectInitializer& ObjectInitializer)
 	Type = AT_Status;
 	StatusAudioPath = "/XMPGameMode/Sounds/announcer/";
 	StatusAudioNamePrefix = "";
-	Spacing = 0.5f;
+	// XTXP deleted prop on 23/09/2016 23:26:10
+	//Spacing = 0.5f;
 }

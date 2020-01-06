@@ -70,11 +70,11 @@ void AXGameMode::InitGame(const FString& MapName, const FString& Options, FStrin
 
 	AUTGameMode::InitGame(MapName, Options, ErrorMessage);
 
-	bBalanceTeams = EvalBoolOptions(ParseOption(Options, TEXT("BalanceTeams")), bBalanceTeams);
+	bBalanceTeams = EvalBoolOptions(UGameplayStatics::ParseOption(Options, TEXT("BalanceTeams")), bBalanceTeams);
 
 	if (bAllowURLTeamCountOverride)
 	{
-		NumTeams = GetIntOption(Options, TEXT("NumTeams"), NumTeams);
+		NumTeams = UGameplayStatics::GetIntOption(Options, TEXT("NumTeams"), NumTeams);
 	}
 	NumTeams = FMath::Max<uint8>(NumTeams, 2);
 
@@ -102,10 +102,10 @@ void AXGameMode::InitGame(const FString& MapName, const FString& Options, FStrin
 	XTeams.Add(Cast<AXTeamInfo>(Teams[0]));
 	XTeams.Add(Cast<AXTeamInfo>(Teams[1]));
 
-	MercyScore = FMath::Max(0, GetIntOption(Options, TEXT("MercyScore"), MercyScore));
+	MercyScore = FMath::Max(0, UGameplayStatics::GetIntOption(Options, TEXT("MercyScore"), MercyScore));
 
 	// TDM never kills off players going in to overtime
-	bOnlyTheStrongSurvive = false;
+	//bOnlyTheStrongSurvive = false;
 
 
 

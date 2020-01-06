@@ -28,8 +28,8 @@
 #include "UTHUD.h"
 #include "UTHUD_DM.h"
 #include "XHUD.h"
-#include "UTHUDWidget_TeamScore.h"
-#include "UTHUDWidget_DMPlayerScore.h"
+//#include "UTHUDWidget_TeamScore.h"
+//#include "UTHUDWidget_DMPlayerScore.h"
 
 AXHUD::AXHUD(const FObjectInitializer& ObjectInitializer)
 : Super(ObjectInitializer)
